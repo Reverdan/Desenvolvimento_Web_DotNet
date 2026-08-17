@@ -1,0 +1,34 @@
+@model LoginViewModel
+@{
+    ViewData["Title"] = "Login com ASP.NET Core MVC";
+}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/styles.css">
+</head>
+<body>
+    <main class="login-box">
+        <h1>Login</h1>
+
+        <form asp-controller="Login" asp-action="Index" method="post">
+            <label asp-for="Usuario">Nome de usuário</label>
+            <input asp-for="Usuario" class="input" placeholder="Digite seu nome" autocomplete="username">
+
+            <label asp-for="Senha">Senha</label>
+            <input asp-for="Senha" class="input" type="password" placeholder="Digite sua senha" autocomplete="current-password">
+
+            <button type="submit" class="button">Entrar</button>
+        </form>
+
+        @if (!string.IsNullOrEmpty(Model.Mensagem))
+        {
+            <p class="message @Model.TipoMensagem" role="alert">@Model.Mensagem</p>
+        }
+    </main>
+</body>
+</html>
