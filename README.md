@@ -10,6 +10,7 @@ Material de apoio curso de Análise e Desenvolvimento Unip Sorocaba
 - [6 - HTML CSS seletores](6%20-%20html%20css%20seletores/README.md): uso de seletores CSS como classe, descendente, atributo e pseudo-classes para estilizar a página com mais precisão.
 - [7 - HTML JS validação](7%20-%20html%20js%20validacao/README.md): página de login com validação em JavaScript, verificando nome e senha antes de permitir acesso.
 - [8 - HTML CSS JS separados](8%20-%20html%20css%20js%20separados/README.md): mesma lógica do exercício 7, porém com HTML, CSS e JavaScript organizados em arquivos distintos.
-- [9 - ASP.NET](9%20-%20ASP%20dotNet/README.md): mesma tela de login do exercício 8, com validação server-side em ASP.NET Core Razor Pages.
-- [10 - ASP.NET Core MVC](10%20-%20ASP%20dotnet%20mvc/README.md): mesma tela de login, com validação server-side e separação entre Controller, Model e View.
+- [9 - ASP.NET WebForm](9%20-%20ASP%20dotNet%20WebForm/README.md): mesma tela de login do exercício 8, com validação server-side em ASP.NET Core Razor Pages.
+- [10 - ASP.NET Core MVC](10%20-%20ASP%20dotNet%20mvc/README.md): mesma tela de login, com validação server-side e separação entre Controller, Model e View.
 - [11 - ASP.NET Core Web API](11%20-%20%20ASP%20dotNet%20WebAPI/README.md): mesma regra de login exposta como endpoint HTTP que recebe e devolve JSON.
+- [12 - ASP.NET Core Blazor](12%20-%20ASP%20dotNet%20Blazor/): projeto para continuar com a mesma lógica em Blazor.
