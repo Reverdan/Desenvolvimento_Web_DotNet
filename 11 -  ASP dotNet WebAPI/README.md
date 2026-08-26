@@ -316,10 +316,18 @@ Essa chamada deve retornar `400 Bad Request`.
 
 ### cURL
 
+No PowerShell ou em terminais Linux/macOS, aspas simples delimitam o corpo JSON normalmente:
+
 ```bash
 curl -i -X POST http://localhost:5191/api/login \
   -H "Content-Type: application/json" \
   -d '{"usuario":"admin","senha":"1234"}'
+```
+
+No `cmd.exe` (Prompt de Comando do Windows), aspas simples não são removidas e acabam enviadas como parte do corpo, quebrando o JSON. Use aspas duplas escapadas:
+
+```cmd
+curl -i -X POST http://localhost:5191/api/login -H "Content-Type: application/json" -d "{\"usuario\":\"admin\",\"senha\":\"1234\"}"
 ```
 
 A opção `-i` exibe os cabeçalhos, incluindo o status HTTP.

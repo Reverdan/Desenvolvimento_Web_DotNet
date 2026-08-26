@@ -1,0 +1,56 @@
+﻿@page "/"
+@using LoginBlazor.Models
+@rendermode InteractiveServer
+
+<PageTitle>Login com Blazor</PageTitle>
+
+<main class="login-box">
+    <h1>Login</h1>
+
+    <EditForm Model="loginModel" OnValidSubmit="Login">
+        <label for="usuario">Nome de usuário</label>
+        <InputText id="usuario" class="input" @bind-Value="loginModel.Usuario" placeholder="Digite seu nome" autocomplete="username" />
+
+        <label for="senha">Senha</label>
+        <InputText id="senha" type="password" class="input" @bind-Value="loginModel.Senha" placeholder="Digite sua senha" autocomplete="current-password" />
+
+        <button type="submit" class="button">Entrar</button>
+    </EditForm>
+
+    @if (!string.IsNullOrEmpty(mensagem))
+    {
+        <p class="message @tipoMensagem" role="alert">@mensagem</p>
+    }
+</main>
+
+@code {
+    private LoginModel loginModel = new();
+    private string mensagem = string.Empty;
+    private string tipoMensagem = string.Empty;
+
+    private void Login()
+    {
+        string nome = (loginModel.Usuario ?? string.Empty).Trim();
+        string senha = (loginModel.Senha ?? string.Empty).Trim();
+
+        if (string.IsNullOrEmpty(nome) || string.IsNullOrEmpty(senha))
+        {
+            ExibirMensagem("Preencha todos os campos antes de entrar.", "error");
+            return;
+        }
+
+        if (nome == "admin" && senha == "1234")
+        {
+            ExibirMensagem("Login realizado com sucesso!", "success");
+            return;
+        }
+
+        ExibirMensagem("Nome de usuário ou senha inválidos.", "error");
+    }
+
+    private void ExibirMensagem(string texto, string tipo)
+    {
+        mensagem = texto;
+        tipoMensagem = tipo;
+    }
+}

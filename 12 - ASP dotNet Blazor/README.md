@@ -39,7 +39,7 @@ A partir da pasta que contém os demais exercícios:
 Set-Location "Sua Pasta"
 New-Item -ItemType Directory -Path "12 - ASP dotNet Blazor" -Force
 Set-Location "12 - ASP dotNet Blazor"
-dotnet new blazor --name LoginBlazor --output . --no-https --force
+dotnet new blazor --name LoginBlazor --output . --no-https --interactivity Server --empty --force
 ```
 
 O comando `dotnet new blazor` cria uma aplicação Blazor com estrutura inicial de projeto e páginas/componentes.
@@ -49,6 +49,8 @@ Parâmetros:
 - `--name LoginBlazor`: define o nome do projeto;
 - `--output .`: cria o projeto na pasta atual;
 - `--no-https`: simplifica o projeto sem HTTPS local;
+- `--interactivity Server`: habilita interatividade no servidor (necessária para `EditForm`/`OnValidSubmit` reagirem sem recarregar a página);
+- `--empty`: remove o exemplo de contador e o CSS de exemplo, deixando só o essencial;
 - `--force`: permite recriar os arquivos em uma pasta que já exista.
 
 Para consultar opções do template:
@@ -74,24 +76,34 @@ A aplicação ficará disponível em `http://localhost:5192`. Para encerrar, pre
 12 - ASP dotNet Blazor/
 |-- Components/
 |   |-- Pages/
-|   |   `-- Home.razor
-|   `-- Layout/
+|   |   |-- Home.razor
+|   |   `-- Error.razor
+|   |-- Layout/
+|   |   `-- MainLayout.razor
+|   |-- App.razor
+|   |-- Routes.razor
+|   `-- _Imports.razor
+|-- Models/
+|   `-- LoginModel.cs
 |-- Program.cs
 |-- appsettings.json
 |-- LoginBlazor.csproj
 `-- wwwroot/
+    |-- app.css
+    `-- styles.css
 ```
 
-A estrutura exata pode variar conforme a versão do template usado, mas o ponto central continua sendo a criação de um componente Razor com formulário e processamento no servidor.
+As mesmas credenciais didáticas (`admin` / `1234`) e o mesmo `styles.css` dos exercícios anteriores são reaproveitados aqui, para deixar clara a diferença de tecnologia com a regra de negócio igual.
 
 ## Como funciona a tela de login em Blazor
 
-Normalmente, o componente de login é construído em um arquivo `.razor` e pode conter:
+O componente de login fica em `Components/Pages/Home.razor` e usa `EditForm` com um modelo (`Models/LoginModel.cs`):
 
 ```razor
 @page "/"
+@rendermode InteractiveServer
 
-<h3>Login</h3>
+<h1>Login</h1>
 
 <EditForm Model="loginModel" OnValidSubmit="Login">
     <InputText @bind-Value="loginModel.Usuario" />
@@ -105,7 +117,9 @@ Normalmente, o componente de login é construído em um arquivo `.razor` e pode 
 }
 ```
 
-A lógica do formulário pode ficar em um bloco `@code`:
+O atributo `@rendermode InteractiveServer` é obrigatório: sem ele, o componente é renderizado só uma vez no servidor e `OnValidSubmit` nunca reage aos cliques.
+
+A lógica do formulário fica em um bloco `@code`, com a mesma regra dos exercícios 9, 10 e 11:
 
 ```csharp
 @code {
@@ -114,23 +128,27 @@ A lógica do formulário pode ficar em um bloco `@code`:
 
     private void Login()
     {
-        if (string.IsNullOrWhiteSpace(loginModel.Usuario) || string.IsNullOrWhiteSpace(loginModel.Senha))
+        string nome = (loginModel.Usuario ?? string.Empty).Trim();
+        string senha = (loginModel.Senha ?? string.Empty).Trim();
+
+        if (string.IsNullOrEmpty(nome) || string.IsNullOrEmpty(senha))
         {
-            mensagem = "Preencha usuário e senha.";
+            mensagem = "Preencha todos os campos antes de entrar.";
             return;
         }
 
-        if (loginModel.Usuario == "admin" && loginModel.Senha == "1234")
+        if (nome == "admin" && senha == "1234")
         {
             mensagem = "Login realizado com sucesso!";
+            return;
         }
-        else
-        {
-            mensagem = "Usuário ou senha inválidos.";
-        }
+
+        mensagem = "Nome de usuário ou senha inválidos.";
     }
 }
 ```
+
+A versão completa também guarda um `tipoMensagem` (`success`/`error`) para reaproveitar as classes CSS `.success` e `.error` do `styles.css`.
 
 ## Entendendo a abordagem
 
