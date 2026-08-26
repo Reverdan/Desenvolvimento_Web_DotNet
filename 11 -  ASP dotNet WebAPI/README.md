@@ -327,7 +327,7 @@ curl -i -X POST http://localhost:5191/api/login \
 No `cmd.exe` (Prompt de Comando do Windows), aspas simples não são removidas e acabam enviadas como parte do corpo, quebrando o JSON. Use aspas duplas escapadas:
 
 ```cmd
-curl -i -X POST http://localhost:5191/api/login -H "Content-Type: application/json" -d "{\"usuario\":\"admin\",\"senha\":\"1234\"}"
+curl -i -X POST http://localhost:5000/api/login -H "Content-Type: application/json" -d "{\"usuario\":\"admin\",\"senha\":\"1234\"}"
 ```
 
 A opção `-i` exibe os cabeçalhos, incluindo o status HTTP.
