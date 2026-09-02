@@ -15,3 +15,4 @@ Material de apoio curso de Análise e Desenvolvimento Unip Sorocaba
 - [11 - ASP.NET Core Web API](11%20-%20%20ASP%20dotNet%20WebAPI/README.md): mesma regra de login exposta como endpoint HTTP que recebe e devolve JSON.
 - [12 - ASP.NET Core Blazor](12%20-%20ASP%20dotNet%20Blazor/README.md): mesma regra de login em um componente Razor interativo (Blazor Server), com `EditForm` e validação no servidor.
 - [13 - HTML JS consumindo Web API](13%20-%20html%20js%20consumindo%20webapi/README.md): cliente HTML/CSS/JS tradicional que consome, via `fetch`, o endpoint JSON do exercício 11.
+- [14 - MVC com login completo](14%20-%20MVC%20com%20login%20completo/README.md): aplicação ASP.NET Core MVC com DAL/DAO, senha derivada com PBKDF2, cookie de autenticação, área protegida e logout.

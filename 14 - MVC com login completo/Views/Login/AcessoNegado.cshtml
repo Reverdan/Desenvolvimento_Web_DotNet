@@ -1,0 +1,20 @@
+@{
+    ViewData["Title"] = "Acesso negado";
+}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/styles.css">
+</head>
+<body>
+    <main class="panel">
+        <p class="eyebrow">403</p>
+        <h1>Acesso negado</h1>
+        <p class="intro">Você não tem permissão para acessar este recurso.</p>
+        <a class="button-link" asp-action="Index">Voltar ao login</a>
+    </main>
+</body>
+</html>

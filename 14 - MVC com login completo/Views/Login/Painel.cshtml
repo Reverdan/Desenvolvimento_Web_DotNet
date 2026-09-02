@@ -1,0 +1,23 @@
+@model DashboardViewModel
+@{
+    ViewData["Title"] = "Painel";
+}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewData["Title"] | Área segura</title>
+    <link rel="stylesheet" href="~/styles.css">
+</head>
+<body>
+    <main class="panel dashboard">
+        <p class="eyebrow">AUTENTICADO</p>
+        <h1>Olá, @Model.Usuario.</h1>
+        <p class="intro">Esta página só pode ser acessada com um cookie de autenticação válido.</p>
+        <form asp-action="Sair" method="post">
+            <button type="submit">Sair com segurança</button>
+        </form>
+    </main>
+</body>
+</html>

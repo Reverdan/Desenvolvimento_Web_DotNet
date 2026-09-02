@@ -1,0 +1,32 @@
+@model LoginViewModel
+@{
+    ViewData["Title"] = "Entrar";
+}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewData["Title"] | Área segura</title>
+    <link rel="stylesheet" href="~/styles.css">
+</head>
+<body>
+    <main class="panel">
+        <p class="eyebrow">ASP.NET CORE MVC</p>
+        <h1>Área segura</h1>
+        <p class="intro">Entre com suas credenciais para continuar.</p>
+        <form asp-action="Index" method="post" class="login-form">
+            <input type="hidden" name="returnUrl" value="@ViewData["ReturnUrl"]">
+            <div asp-validation-summary="ModelOnly" class="message error" role="alert"></div>
+            <label asp-for="Usuario">Usuário</label>
+            <input asp-for="Usuario" autocomplete="username" autofocus>
+            <span asp-validation-for="Usuario" class="field-error"></span>
+            <label asp-for="Senha">Senha</label>
+            <input asp-for="Senha" autocomplete="current-password">
+            <span asp-validation-for="Senha" class="field-error"></span>
+            <button type="submit">Entrar</button>
+        </form>
+        <p class="hint">Ambiente didático: usuário inicial <strong>admin</strong>.</p>
+    </main>
+</body>
+</html>
