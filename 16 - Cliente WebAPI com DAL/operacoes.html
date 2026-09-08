@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consultas e operações</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="page-shell">
+    <nav class="topbar" aria-label="Navegação principal">
+      <a class="brand" href="cadastro.html">Pessoas API</a>
+      <div class="nav-links">
+        <a href="cadastro.html">Cadastro</a>
+        <a class="active" href="operacoes.html">Consultas e operações</a>
+      </div>
+    </nav>
+
+    <section class="page-heading">
+      <p class="eyebrow">GET · PUT · DELETE /api/pessoas</p>
+      <h1>Consulte e gerencie pessoas</h1>
+      <p>Pesquise registros, edite seus dados ou remova uma pessoa pelo ID.</p>
+    </section>
+
+    <section class="form-panel operations-panel" aria-labelledby="titulo-operacoes">
+      <h2 id="titulo-operacoes">Dados da pessoa</h2>
+      <form id="formOperacoes">
+        <label for="idPessoa">ID</label>
+        <div class="input-action">
+          <input id="idPessoa" type="number" min="1" placeholder="Ex.: 12">
+          <button type="button" id="botaoPesquisarId">Pesquisar</button>
+        </div>
+
+        <label for="nomePessoa">Nome</label>
+        <div class="input-action">
+          <input id="nomePessoa" type="text" maxlength="50" placeholder="Ex.: Ana">
+          <button type="button" id="botaoPesquisarNome">Pesquisar</button>
+        </div>
+
+        <div class="field-grid">
+          <div>
+            <label for="rgPessoa">RG</label>
+            <input id="rgPessoa" type="text" maxlength="11">
+          </div>
+          <div>
+            <label for="cpfPessoa">CPF</label>
+            <input id="cpfPessoa" type="text" maxlength="13">
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" id="botaoExcluir" class="danger-button">Excluir</button>
+          <button type="submit" id="botaoSalvar">Salvar</button>
+        </div>
+      </form>
+      <p id="mensagem" class="message" role="status"></p>
+      <div id="resultados" class="results" aria-live="polite"></div>
+    </section>
+  </main>
+  <script src="operacoes.js"></script>
+</body>
+</html>
