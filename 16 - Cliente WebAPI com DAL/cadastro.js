@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:5192/api/pessoas';
+const API_URL = 'http://localhost:5000/api/pessoas';
 
 const formCadastro = document.getElementById('formCadastro');
 const botaoCadastrar = document.getElementById('botaoCadastrar');

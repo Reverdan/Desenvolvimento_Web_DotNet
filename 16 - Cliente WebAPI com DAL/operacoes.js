@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:5192/api/pessoas';
+const API_URL = 'http://localhost:5000/api/pessoas';
 
 document.getElementById('botaoPesquisarId').addEventListener('click', pesquisarPorId);
 document.getElementById('botaoPesquisarNome').addEventListener('click', pesquisarPorNome);
