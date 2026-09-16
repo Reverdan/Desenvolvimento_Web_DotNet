@@ -18,3 +18,4 @@ Material de apoio curso de Análise e Desenvolvimento Unip Sorocaba
 - [14 - MVC com login completo](14%20-%20MVC%20com%20login%20completo/README.md): aplicação ASP.NET Core MVC com DAL/DAO, senha derivada com PBKDF2, cookie de autenticação, área protegida e logout.
 - [15 - WebAPI com DAL](15%20-%20WebAPI%20com%20DAL/README.md): API REST para o CRUD de pessoas, usando a classe `Controle` do projeto CRUDPessoas e sua DAL com SQL Server.
 - [16 - Cliente WebAPI com DAL](16%20-%20Cliente%20WebAPI%20com%20DAL/README.md): cliente HTML/CSS/JavaScript separado em cadastro e operações, com formulário compartilhado para consumir a API do exercício 15.
+- [17 - WebApi com DAL Entity](17%20-%20WebApi%20com%20DAL%20Entity/README.md): evolução do exercício 15, introduzindo o Entity Framework Core lado a lado com ADO.NET no mesmo DAL, para comparar as duas abordagens de acesso a dados.
